@@ -2,7 +2,7 @@
 
 aws cloudformation wait  stack-exists --stack-name $STACK_NAME
 
-if [$? -eq 0]
+if [ $? -eq 0 ]
 then
           aws cloudformation update-stack --stack-name $STACK_NAME --template-body file://dynamo-cf-template.tf \
              --parameters ParameterKey=HashKeyElementName,ParameterValue=$HashKeyElementName \
