@@ -70,17 +70,10 @@ Resources:
          - AttributeName: FirstName
            KeyType: HASH
          BillingMode: PAY_PER_REQUEST
-         StreamSpecification:
-           StreamViewType: NEW_AND_OLD_IMAGES
-         SSESpecification:
-           SSEEnabled: true
-         SSEType: "KMS"
          Replicas:
          - Region: us-east-1
            PointInTimeRecoverySpecification:
              PointInTimeRecoveryEnabled: true
-           SSESpecification:
-              KMSMasterKeyId: alias/dynamodb-key-east
            Tags:
              - Key: Name
                Value: mytable
@@ -89,8 +82,6 @@ Resources:
          - Region: us-west-1
            PointInTimeRecoverySpecification:
                PointInTimeRecoveryEnabled: true
-           SSESpecification:
-               KMSMasterKeyId: alias/dynamodb-key-west
            Tags:
             - Key: Name
               Value: mytable
