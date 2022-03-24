@@ -69,9 +69,18 @@ Resources:
          KeySchema:
          - AttributeName: FirstName
            KeyType: HASH
-         BillingMode: PAY_PER_REQUEST
+         BillingMode: PROVISIONED
          StreamSpecification:
             StreamViewType: NEW_AND_OLD_IMAGES
+         ReadCapacityUnits: 5
+         WriteCapacityUnits: 5
+#          WriteProvisionedThroughputSettings:
+#            WriteCapacityAutoScalingSettings:
+#               MaxCapacity : 4
+#               MinCapacity : 10
+#               SeedCapacity : 5
+#               TargetTrackingScalingPolicyConfiguration:
+
 
          Replicas:
          - Region: us-east-2
