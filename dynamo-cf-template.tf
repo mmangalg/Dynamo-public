@@ -25,14 +25,14 @@ Parameters:
     Description: Provisioned read throughput
     Type: Number
     Default: '7'
-    MinValue: '5'
+    MinValue: '1'
     MaxValue: '10000'
     ConstraintDescription: must be between 5 and 10000
   WriteCapacityUnits:
     Description: Provisioned write throughput
     Type: Number
     Default: '10'
-    MinValue: '6'
+    MinValue: '1'
     MaxValue: '10000'
     ConstraintDescription: must be between 5 and 10000
 Resources:
