@@ -48,6 +48,8 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: !Ref 'ReadCapacityUnits'
         WriteCapacityUnits: !Ref 'WriteCapacityUnits'
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: True
 Outputs:
   TableName:
     Value: !Ref 'myDynamoDBTable'
