@@ -24,7 +24,7 @@ Parameters:
   ReadCapacityUnits:
     Description: Provisioned read throughput
     Type: Number
-    Default: '5'
+    Default: '7'
     MinValue: '5'
     MaxValue: '10000'
     ConstraintDescription: must be between 5 and 10000
