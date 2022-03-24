@@ -37,7 +37,7 @@ Parameters:
     ConstraintDescription: must be between 5 and 10000
 Resources:
   myDynamoDBTable:
-    Type: AWS::DynamoDB::Table
+    Type: AWS::DynamoDB::GlobalTable
     Properties:
       AttributeDefinitions:
       - AttributeName: !Ref 'HashKeyElementName'
