@@ -32,7 +32,7 @@ Parameters:
     Description: Provisioned write throughput
     Type: Number
     Default: '10'
-    MinValue: '5'
+    MinValue: '6'
     MaxValue: '10000'
     ConstraintDescription: must be between 5 and 10000
 Resources:
