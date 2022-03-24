@@ -1,6 +1,6 @@
 #!/bin/bash
 
-aws cloudformation wait  stack-exists --stack-name $STACK_NAME
+aws cloudformation wait  stack-exists --stack-name $STACK_NAME --region us-east-2
 
 if [ $? -eq 0 ]
 then
