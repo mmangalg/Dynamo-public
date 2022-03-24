@@ -70,6 +70,9 @@ Resources:
          - AttributeName: FirstName
            KeyType: HASH
          BillingMode: PAY_PER_REQUEST
+         StreamSpecification:
+            StreamViewType: NEW_AND_OLD_IMAGES
+
          Replicas:
          - Region: us-east-2
            PointInTimeRecoverySpecification:
