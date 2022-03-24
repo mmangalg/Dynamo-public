@@ -87,9 +87,9 @@ Resources:
              - Key: Region
                Value: east
          - Region: us-west-1
-             PointInTimeRecoverySpecification:
+           PointInTimeRecoverySpecification:
                PointInTimeRecoveryEnabled: true
-             SSESpecification:
+           SSESpecification:
                KMSMasterKeyId: alias/dynamodb-key-west
            Tags:
             - Key: Name
