@@ -71,7 +71,7 @@ Resources:
            KeyType: HASH
          BillingMode: PAY_PER_REQUEST
          Replicas:
-         - Region: us-east-1
+         - Region: us-east-2
            PointInTimeRecoverySpecification:
              PointInTimeRecoveryEnabled: true
            Tags:
