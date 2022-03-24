@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 aws cloudformation update-stack --stack-name myteststack3 --template-body file://dynamo-cf-template.tf \
 --parameters ParameterKey=HashKeyElementName,ParameterValue=$HashKeyElementName \
