@@ -72,14 +72,17 @@ Resources:
          BillingMode: PROVISIONED
          StreamSpecification:
             StreamViewType: NEW_AND_OLD_IMAGES
-         ReadCapacityUnits: 5
-         WriteCapacityUnits: 5
-#          WriteProvisionedThroughputSettings:
-#            WriteCapacityAutoScalingSettings:
-#               MaxCapacity : 4
-#               MinCapacity : 10
-#               SeedCapacity : 5
-#               TargetTrackingScalingPolicyConfiguration:
+         
+         WriteProvisionedThroughputSettings:
+           WriteCapacityAutoScalingSettings:
+              MaxCapacity : 4
+              MinCapacity : 10
+              SeedCapacity : 5
+              TargetTrackingScalingPolicyConfiguration:
+                       DisableScaleIn: False
+                       ScaleInCooldown: 60
+                       ScaleOutCooldown: 60
+                       TargetValue: 70
 
 
          Replicas:
@@ -91,6 +94,15 @@ Resources:
                Value: mytable
              - Key: Region
                Value: east
+           ReadProvisionedThroughputSettings:
+                  MaxCapacity: 4
+                  MinCapacity: 10
+                  SeedCapacity: 5
+                  TargetTrackingScalingPolicyConfiguration: 
+                             DisableScaleIn: False
+                             ScaleInCooldown: 60
+                             ScaleOutCooldown: 60
+                             TargetValue: 70
          - Region: us-west-1
            PointInTimeRecoverySpecification:
                PointInTimeRecoveryEnabled: true
