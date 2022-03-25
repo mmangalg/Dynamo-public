@@ -22,6 +22,11 @@ Parameters:
     Description: Defines enviroment name
     Type: String
     Default: Staging
+  Region:
+    Description: Defines region name
+    Type: String
+    Default: Staging
+
 
 Resources:
  GlobalTableTest:
@@ -49,7 +54,7 @@ Resources:
                        ScaleOutCooldown: 60
                        TargetValue: 70
          Replicas:
-         - Region: us-east-2
+         - Region: !Ref 'Region'
            PointInTimeRecoverySpecification:
              PointInTimeRecoveryEnabled: true
            Tags:
