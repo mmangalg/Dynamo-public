@@ -94,7 +94,8 @@ Resources:
                Value: mytable
              - Key: Region
                Value: east
-           ReadCapacityUnits: 5
+           ReadProvisionedThroughputSettings: 
+               ReadCapacityUnits: 5
            
          - Region: us-west-1
            PointInTimeRecoverySpecification:
@@ -104,7 +105,8 @@ Resources:
               Value: mytable
             - Key: Region
               Value: west 
-           ReadCapacityUnits: 4
+           ReadProvisionedThroughputSettings:
+               ReadCapacityUnits: 4
 #            ReadProvisionedThroughputSettings:
 #                   MaxCapacity: 4
 #                   MinCapacity: 10
