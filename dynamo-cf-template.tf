@@ -103,14 +103,14 @@ Resources:
               Value: mytable
             - Key: Region
               Value: west
-           ReadProvisionedThroughputSettings:
-                  MaxCapacity: 4
-                  MinCapacity: 10
-                  SeedCapacity: 5
-                  TargetTrackingScalingPolicyConfiguration: 
-                             DisableScaleIn: False
-                             ScaleInCooldown: 60
-                             ScaleOutCooldown: 60
-                             TargetValue: 70
+#            ReadProvisionedThroughputSettings:
+#                   MaxCapacity: 4
+#                   MinCapacity: 10
+#                   SeedCapacity: 5
+#                   TargetTrackingScalingPolicyConfiguration: 
+#                              DisableScaleIn: False
+#                              ScaleInCooldown: 60
+#                              ScaleOutCooldown: 60
+#                              TargetValue: 70
 
 
