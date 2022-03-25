@@ -116,7 +116,7 @@ Resources:
              - Key: Region
                Value: east
              - Key: Env
-              value: !Ref EnvironmentName
+               value: !Ref EnvironmentName
            ReadProvisionedThroughputSettings: 
                ReadCapacityUnits: 5
            
