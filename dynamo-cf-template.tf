@@ -75,8 +75,8 @@ Resources:
          
          WriteProvisionedThroughputSettings:
            WriteCapacityAutoScalingSettings:
-              MaxCapacity : 4
-              MinCapacity : 10
+              MinCapacity : 4
+              MaxCapacity : 10
               SeedCapacity : 5
               TargetTrackingScalingPolicyConfiguration:
                        DisableScaleIn: False
