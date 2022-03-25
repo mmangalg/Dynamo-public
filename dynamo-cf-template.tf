@@ -122,7 +122,7 @@ Resources:
            
          - Region: us-west-1
            PointInTimeRecoverySpecification:
-               PointInTimeRecoveryEnabled: true
+               PointInTimeRecoveryEnabled: false
            Tags:
             - Key: Name
               Value: mytable1
