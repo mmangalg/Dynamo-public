@@ -57,17 +57,33 @@
 
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS CloudFormation Template to create global tables
-Parameters: {}
+Parameters:
+  HashKeyElementName:
+    Description: HashType PrimaryKey Name
+    Type: String
+    AllowedPattern: '[a-zA-Z0-9]*'
+    MinLength: '1'
+    MaxLength: '2048'
+    ConstraintDescription: must contain only alphanumberic characters
+  HashKeyElementType:
+    Description: HashType PrimaryKey Type
+    Type: String
+    Default: S
+    AllowedPattern: '[S|N]'
+    MinLength: '1'
+    MaxLength: '1'
+    ConstraintDescription: must be either S or N
+
 Resources:
  GlobalTableTest:
      Type: 'AWS::DynamoDB::GlobalTable'
      Properties:
          TableName: mytable
          AttributeDefinitions:
-         - AttributeName: FirstName
-           AttributeType: S
+         - AttributeName: !Ref 'HashKeyElementName'
+           AttributeType: !Ref 'HashKeyElementType'
          KeySchema:
-         - AttributeName: FirstName
+         - AttributeName: !Ref 'HashKeyElementName'
            KeyType: HASH
          BillingMode: PROVISIONED
          StreamSpecification:
