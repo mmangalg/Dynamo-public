@@ -32,7 +32,7 @@ Resources:
  GlobalTableTest:
      Type: 'AWS::DynamoDB::GlobalTable'
      Properties:
-         TableName: mytable1
+         TableName: !Join [ "-", [ !Ref 'EnvironmentName', mytable1 ] ]
          AttributeDefinitions:
          - AttributeName: !Ref 'HashKeyElementName'
            AttributeType: !Ref 'HashKeyElementType'
