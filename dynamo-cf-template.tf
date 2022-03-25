@@ -83,7 +83,7 @@ Resources:
  GlobalTableTest:
      Type: 'AWS::DynamoDB::GlobalTable'
      Properties:
-         TableName: mytable
+         TableName: mytable1
          AttributeDefinitions:
          - AttributeName: !Ref 'HashKeyElementName'
            AttributeType: !Ref 'HashKeyElementType'
@@ -112,7 +112,7 @@ Resources:
              PointInTimeRecoveryEnabled: true
            Tags:
              - Key: Name
-               Value: mytable
+               Value: mytable1
              - Key: Region
                Value: east
              - Key: Env
@@ -125,7 +125,7 @@ Resources:
                PointInTimeRecoveryEnabled: true
            Tags:
             - Key: Name
-              Value: mytable
+              Value: mytable1
             - Key: Region
               Value: west 
             - Key: Env
