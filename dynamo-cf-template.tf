@@ -48,8 +48,6 @@ Resources:
                        ScaleInCooldown: 60
                        ScaleOutCooldown: 60
                        TargetValue: 70
-
-
          Replicas:
          - Region: us-east-2
            PointInTimeRecoverySpecification:
