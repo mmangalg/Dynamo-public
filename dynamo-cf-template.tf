@@ -94,6 +94,15 @@ Resources:
                Value: mytable
              - Key: Region
                Value: east
+           
+         - Region: us-west-1
+           PointInTimeRecoverySpecification:
+               PointInTimeRecoveryEnabled: true
+           Tags:
+            - Key: Name
+              Value: mytable
+            - Key: Region
+              Value: west
            ReadProvisionedThroughputSettings:
                   MaxCapacity: 4
                   MinCapacity: 10
@@ -103,13 +112,5 @@ Resources:
                              ScaleInCooldown: 60
                              ScaleOutCooldown: 60
                              TargetValue: 70
-         - Region: us-west-1
-           PointInTimeRecoverySpecification:
-               PointInTimeRecoveryEnabled: true
-           Tags:
-            - Key: Name
-              Value: mytable
-            - Key: Region
-              Value: west
 
 
