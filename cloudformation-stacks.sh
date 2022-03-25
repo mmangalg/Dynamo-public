@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-StackName="${EnvironmentName} World"
+StackName="DynamoDBStack-${EnvironmentName}"
 
 aws cloudformation wait  stack-exists --stack-name $StackName --region $Region
 
