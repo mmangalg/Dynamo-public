@@ -116,7 +116,7 @@ Resources:
              - Key: Region
                Value: east
              - Key: Env
-               value: !Ref 'EnvironmentName'
+               value: staging
            ReadProvisionedThroughputSettings: 
                ReadCapacityUnits: 5
            
@@ -129,7 +129,7 @@ Resources:
             - Key: Region
               Value: west 
             - Key: Env
-              value: !Ref 'EnvironmentName'
+              value: staging
            ReadProvisionedThroughputSettings:
                ReadCapacityUnits: 4
 #            ReadProvisionedThroughputSettings:
