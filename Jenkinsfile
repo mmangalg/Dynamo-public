@@ -22,7 +22,7 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-                //  sh 'create-change-set.sh'
+                sh('create-change-set.sh')
                 echo "hello1"
              }
         }
