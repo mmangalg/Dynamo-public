@@ -13,8 +13,9 @@ pipeline{
         stage('create change set')
         {
           steps{
-           echo "creating change set"
-          }
+                  chmod a+x create-change-set.sh
+                  ./create-change-set.sh
+             }
         }
         stage('Manual Approval')
         {
@@ -25,8 +26,9 @@ pipeline{
         stage('Deploy the changes')
         {
           steps{
-          echo "deploying the changes"
-          }
+                   chmod a+x cloudformation-stacks.sh
+                   ./cloudformation-stacks.sh
+            }
         }
   }
 }
