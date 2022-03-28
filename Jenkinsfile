@@ -22,15 +22,15 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-                  sh 'create-change-set.sh'
+                //  sh 'create-change-set.sh'
              }
         }
         
         stage('Deploy the changes')
         {
           steps{
-                   sh 'chmod a+x cloudformation-stacks.sh'
-                   ./cloudformation-stacks.sh
+                  // sh 'chmod a+x cloudformation-stacks.sh'
+                 //  ./cloudformation-stacks.sh
             }
         }
   }
