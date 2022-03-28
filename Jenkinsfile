@@ -23,6 +23,7 @@ pipeline{
           steps{
                  // sh 'chmod a+x create-change-set.sh'
                 //  sh 'create-change-set.sh'
+                echo "hello1"
              }
         }
         
@@ -31,6 +32,7 @@ pipeline{
           steps{
                   // sh 'chmod a+x cloudformation-stacks.sh'
                  //  ./cloudformation-stacks.sh
+                 echo "hello2"
             }
         }
   }
