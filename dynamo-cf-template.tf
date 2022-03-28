@@ -2,15 +2,15 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS CloudFormation Template to create global tables
 Parameters:
-  HashKeyElementName:
+  PrimaryKeyName:
     Description: HashType PrimaryKey Name
-    Default: FirstName
+    Default: Name
     Type: String
     AllowedPattern: '[a-zA-Z0-9]*'
     MinLength: '1'
     MaxLength: '2048'
     ConstraintDescription: must contain only alphanumberic characters
-  HashKeyElementType:
+  PrimaryKeyType:
     Description: HashType PrimaryKey Type
     Type: String
     Default: S
@@ -34,10 +34,10 @@ Resources:
      Properties:
          TableName: !Join [ "-", [ !Ref 'EnvironmentName', mytable1 ] ]
          AttributeDefinitions:
-         - AttributeName: !Ref 'HashKeyElementName'
-           AttributeType: !Ref 'HashKeyElementType'
+         - AttributeName: !Ref 'PrimaryKeyName'
+           AttributeType: !Ref 'PrimaryKeyType'
          KeySchema:
-         - AttributeName: !Ref 'HashKeyElementName'
+         - AttributeName: !Ref 'PrimaryKeyName'
            KeyType: HASH
          BillingMode: PROVISIONED
          StreamSpecification:
