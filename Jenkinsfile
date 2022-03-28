@@ -17,12 +17,14 @@ pipeline{
           input "Please approve"
           }
         }
-    
+        
         stage('create change set')
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
+            dir("Dynamo-public"){
                 sh('create-change-set.sh')
+            }
                 echo "hello1"
              }
         }
