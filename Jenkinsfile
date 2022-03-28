@@ -19,10 +19,11 @@ pipeline{
         stage('create change set')
         {
           steps{
-                 // sh 'chmod a+x create-change-set.sh'
-               
+            
+                sh 'echo $CHANGE_SET_ARN'
                 sh 'chmod a+x create-change-set.sh'
                 sh './create-change-set.sh'
+                sh 'echo $CHANGE_SET_ARN'
             
              }
         }
