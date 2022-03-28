@@ -22,6 +22,6 @@ StackName="DynamoDBStack-${EnvironmentName}"
 # fi 
 
 #ARN=$(echo $OUT | jq -r '.Id')
-ARN = "this is my arn"
+ARN="this is my arn"
 echo "Printing ARN $ARN"
-CHANGE_SET_ARN = $ARN
+CHANGE_SET_ARN=$ARN
