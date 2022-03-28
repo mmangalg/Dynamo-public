@@ -22,9 +22,9 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-            dir("demo-pipeline"){
-                sh('create-change-set.sh')
-            }
+                sh 'pwd || ls'
+                //sh('create-change-set.sh')
+            
                 echo "hello1"
              }
         }
