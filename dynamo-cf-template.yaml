@@ -43,7 +43,7 @@ Resources:
          StreamSpecification:
             StreamViewType: NEW_AND_OLD_IMAGES
          TimeToLiveSpecification:
-            AttributeName:  !Ref 'PrimaryKeyName'
+            #AttributeName:  !Ref 'PrimaryKeyName'
             Enabled: False
          
          WriteProvisionedThroughputSettings:
