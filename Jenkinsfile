@@ -11,6 +11,13 @@ pipeline{
   }
   stages{
     
+        stage('Manual Approval')
+        {
+          steps{
+          input "Please approve"
+          }
+        }
+    
         stage('create change set')
         {
           steps{
@@ -18,12 +25,7 @@ pipeline{
                   sh 'create-change-set.sh'
              }
         }
-        stage('Manual Approval')
-        {
-          steps{
-          echo "adding manual approval"
-          }
-        }
+        
         stage('Deploy the changes')
         {
           steps{
