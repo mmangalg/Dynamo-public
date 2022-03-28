@@ -21,7 +21,7 @@ StackName="DynamoDBStack-${EnvironmentName}"
 
 # fi 
 
-ARN=$(echo $OUT | jq -r '.Id')
+#ARN=$(echo $OUT | jq -r '.Id')
 echo "Do you want to proceed further:"
 read approval
 #aws cloudformation execute-change-set --change-set-name $ARN
