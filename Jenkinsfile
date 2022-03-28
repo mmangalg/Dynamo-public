@@ -11,31 +11,32 @@ pipeline{
   }
   stages{
     
-        stage('Manual Approval')
-        {
-          steps{
-          input "Please approve"
-          }
-        }
         
         stage('create change set')
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-                sh 'pwd'
-                sh 'ls -la'
+               
                 sh 'chmod a+x create-change-set.sh'
                 sh './create-change-set.sh'
             
              }
         }
         
+        stage('Manual Approval')
+    
+        {
+          steps{
+            
+                   input "Please review the above changeset and confirm if it can be deployed"
+          }
+        }
+    
         stage('Deploy the changes')
         {
           steps{
-                  // sh 'chmod a+x cloudformation-stacks.sh'
-                 //  ./cloudformation-stacks.sh
-                 echo "hello2"
+                  sh 'chmod a+x cloudformation-stacks.sh'
+                  sh './cloudformation-stacks.sh
             }
         }
   }
