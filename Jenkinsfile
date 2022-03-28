@@ -14,7 +14,7 @@ pipeline{
         stage('create change set')
         {
           steps{
-                  chmod a+x create-change-set.sh
+                  sh 'chmod a+x create-change-set.sh'
                   ./create-change-set.sh
              }
         }
@@ -27,7 +27,7 @@ pipeline{
         stage('Deploy the changes')
         {
           steps{
-                   chmod a+x cloudformation-stacks.sh
+                   sh 'chmod a+x cloudformation-stacks.sh'
                    ./cloudformation-stacks.sh
             }
         }
