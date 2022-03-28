@@ -15,7 +15,7 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-                  ./create-change-set.sh
+                  sh 'create-change-set.sh'
              }
         }
         stage('Manual Approval')
