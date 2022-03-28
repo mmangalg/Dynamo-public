@@ -36,7 +36,7 @@ pipeline{
         {
           steps{
                   sh 'chmod a+x cloudformation-stacks.sh'
-                  sh './cloudformation-stacks.sh
+                  sh './cloudformation-stacks.sh'
             }
         }
   }
