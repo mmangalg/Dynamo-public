@@ -8,7 +8,7 @@ aws cloudformation wait  stack-exists --stack-name $StackName --region $Region
 if [ $? -eq 0 ]
 then
           echo "creating change set for existing stack "
-          OUT=$(aws cloudformation create-change-set     --stack-name DynamoDBStack-Staging     --change-set-name my-change-set  \
+          OUT=$(aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set  \
               --template-body file://dynamo-cf-template.yaml --region us-west-2  --parameters ParameterKey=PrimaryKeyName,ParameterValue=Name   \
                 ParameterKey=PrimaryKeyType,ParameterValue=S ParameterKey=EnvironmentName,ParameterValue=Staging ParameterKey=Region,ParameterValue=us-west-2 --change-set-type UPDATE)
           ARN=$(echo $OUT | jq -r '.Id')
@@ -19,7 +19,7 @@ then
 else
       
           echo "creating change set for new stack"
-          OUT=$(aws cloudformation create-change-set     --stack-name DynamoDBStack-Staging     --change-set-name my-change-set  \
+          OUT=$(aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set  \
               --template-body file://dynamo-cf-template.yaml --region us-west-2  --parameters ParameterKey=PrimaryKeyName,ParameterValue=Name   \
               ParameterKey=PrimaryKeyType,ParameterValue=S ParameterKey=EnvironmentName,ParameterValue=Staging ParameterKey=Region,ParameterValue=us-west-2 --change-set-type CREATE)
           ARN=$(echo $OUT | jq -r '.Id')
