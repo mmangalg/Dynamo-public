@@ -23,4 +23,4 @@ fi
 
 ARN=$(echo $OUT | jq -r '.Id')
 echo "Printing ARN $ARN"
-%CHANGE_SET_ARN% = $ARN
+env.CHANGE_SET_ARN = $ARN
