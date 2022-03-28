@@ -42,6 +42,9 @@ Resources:
          BillingMode: PROVISIONED
          StreamSpecification:
             StreamViewType: NEW_AND_OLD_IMAGES
+         TimeToLiveSpecification:
+            AttributeName:  !Ref 'PrimaryKeyName'
+            Enabled: True
          
          WriteProvisionedThroughputSettings:
            WriteCapacityAutoScalingSettings:
