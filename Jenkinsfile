@@ -22,7 +22,8 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-                sh 'pwd || ls'
+                sh 'pwd'
+                sh 'ls -la'
                 //sh('create-change-set.sh')
             
                 echo "hello1"
