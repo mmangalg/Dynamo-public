@@ -1,22 +1,23 @@
 #!/bin/bash -xe
 
+aws cloudformation execute-change-set --change-set-name arn
 
-StackName="DynamoDBStack-${EnvironmentName}"
+# StackName="DynamoDBStack-${EnvironmentName}"
 
-aws cloudformation wait  stack-exists --stack-name $StackName --region $Region
+# aws cloudformation wait  stack-exists --stack-name $StackName --region $Region
 
-if [ $? -eq 0 ]
-then
+# if [ $? -eq 0 ]
+# then
 
-          aws cloudformation update-stack --stack-name $StackName --template-body file://dynamo-cf-template.yaml --region $Region \
-           --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName \
-            ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName \
-            ParameterKey=Region,ParameterValue=$Region
+#           aws cloudformation update-stack --stack-name $StackName --template-body file://dynamo-cf-template.yaml --region $Region \
+#            --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName \
+#             ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName \
+#             ParameterKey=Region,ParameterValue=$Region
 
-else
+# else
 
-          aws cloudformation create-stack --stack-name $StackName --template-body file://dynamo-cf-template.yaml --region $Region \
-            --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName \
-             ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName\
-             ParameterKey=Region,ParameterValue=$Region
-fi 
+#           aws cloudformation create-stack --stack-name $StackName --template-body file://dynamo-cf-template.yaml --region $Region \
+#             --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName \
+#              ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName\
+#              ParameterKey=Region,ParameterValue=$Region
+# fi 
