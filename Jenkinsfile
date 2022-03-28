@@ -9,6 +9,10 @@ pipeline{
    string(name: 'Region', description: 'Enter the region for the Database to be deployed in?')
     
   }
+  environment {
+       CHANGE_SET_ARN = ''                               //can be used in whole pipeline
+   }
+
   stages{
     
         
@@ -23,21 +27,21 @@ pipeline{
              }
         }
         
-        stage('Manual Approval')
+//         stage('Manual Approval')
     
-        {
-          steps{
+//         {
+//           steps{
             
-                   input "Please review the above changeset and confirm if it can be deployed"
-          }
-        }
+//                    input "Please review the above changeset and confirm if it can be deployed"
+//           }
+//         }
     
-        stage('Deploy the changes')
-        {
-          steps{
-                  sh 'chmod a+x cloudformation-stacks.sh'
-                  sh './cloudformation-stacks.sh'
-            }
-        }
+//         stage('Deploy the changes')
+//         {
+//           steps{
+//                   sh 'chmod a+x cloudformation-stacks.sh'
+//                   sh './cloudformation-stacks.sh'
+//             }
+//         }
   }
 }
