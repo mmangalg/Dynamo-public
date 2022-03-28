@@ -22,7 +22,7 @@ pipeline{
         {
           steps{
                  // sh 'chmod a+x create-change-set.sh'
-            dir("Dynamo-public"){
+            dir("demo-pipeline"){
                 sh('create-change-set.sh')
             }
                 echo "hello1"
