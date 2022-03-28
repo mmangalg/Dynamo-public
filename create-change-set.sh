@@ -24,4 +24,4 @@ StackName="DynamoDBStack-${EnvironmentName}"
 #ARN=$(echo $OUT | jq -r '.Id')
 ARN="this is my arn"
 echo "Printing ARN $ARN"
-env.CHANGE_SET_ARN=$ARN
+env.CHANGE_SET_ARN = $ARN
