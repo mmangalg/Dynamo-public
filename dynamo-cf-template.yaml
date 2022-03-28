@@ -44,7 +44,7 @@ Resources:
             StreamViewType: NEW_AND_OLD_IMAGES
          TimeToLiveSpecification:
             AttributeName:  !Ref 'PrimaryKeyName'
-            Enabled: True
+            Enabled: False
          
          WriteProvisionedThroughputSettings:
            WriteCapacityAutoScalingSettings:
@@ -59,7 +59,7 @@ Resources:
          Replicas:
          - Region: !Ref 'Region'
            PointInTimeRecoverySpecification:
-             PointInTimeRecoveryEnabled: true
+             PointInTimeRecoveryEnabled: False
            Tags:
              - Key: Name
                Value: mytable1
