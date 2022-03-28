@@ -70,18 +70,18 @@ Resources:
            ReadProvisionedThroughputSettings: 
                ReadCapacityUnits: 5
            
-         - Region: us-west-1
-           PointInTimeRecoverySpecification:
-               PointInTimeRecoveryEnabled: false
-           Tags:
-            - Key: Name
-              Value: mytable1
-            - Key: Region
-              Value: west 
-            - Key: Env
-              Value: !Ref 'EnvironmentName'
-           ReadProvisionedThroughputSettings:
-               ReadCapacityUnits: 4
+#          - Region: us-west-1
+#            PointInTimeRecoverySpecification:
+#                PointInTimeRecoveryEnabled: false
+#            Tags:
+#             - Key: Name
+#               Value: mytable1
+#             - Key: Region
+#               Value: west 
+#             - Key: Env
+#               Value: !Ref 'EnvironmentName'
+#            ReadProvisionedThroughputSettings:
+#                ReadCapacityUnits: 4
 #            ReadProvisionedThroughputSettings:
 #                   MaxCapacity: 4
 #                   MinCapacity: 10
