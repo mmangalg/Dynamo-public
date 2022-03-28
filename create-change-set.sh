@@ -22,4 +22,4 @@ else
 fi 
 
 ARN=$(echo $OUT | jq -r '.Id')
-aws cloudformation execute-change-set --change-set-name arn
+aws cloudformation execute-change-set --change-set-name $ARN
