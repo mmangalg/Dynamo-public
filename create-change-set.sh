@@ -28,7 +28,8 @@ StackName="DynamoDBStack-${EnvironmentName}"
 
         
 # fi 
+OUT=$(aws cloudformation deploy --stack-name $StackName --template-file dynamo-cf-template.yaml --region $Region --no-execute-changeset \
+--parameter-overrides PrimaryKeyName=$PrimaryKeyName PrimaryKeyType=$PrimaryKeyType EnvironmentName=$EnvironmentName Region=$Region)
 
-aws cloudformation deploy --stack-name $StackName --template-file dynamo-cf-template.yaml --region $Region --no-execute-changeset \
---parameter-overrides PrimaryKeyName=$PrimaryKeyName PrimaryKeyType=$PrimaryKeyType EnvironmentName=$EnvironmentName Region=$Region
+echo "printing $OUT exiting"
 
