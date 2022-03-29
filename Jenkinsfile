@@ -3,7 +3,7 @@ def createchangeset() {
   StackName="DynamoDBStack-${EnvironmentName}"
 
   sh 'aws cloudformation wait  stack-exists --stack-name $StackName --region $Region'
-  STATUS = sh(script: "echo $?", returnStatus: true)
+  STATUS = sh(script: "echo \$?", returnStatus: true)
 
 if( STATUS == 0 ){
           println("creating change set for existing stack")
