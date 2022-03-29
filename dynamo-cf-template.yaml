@@ -59,7 +59,7 @@ Resources:
          Replicas:
          - Region: !Ref 'Region'
            PointInTimeRecoverySpecification:
-             PointInTimeRecoveryEnabled: False
+             PointInTimeRecoveryEnabled: True
            Tags:
              - Key: Name
                Value: mytable1
