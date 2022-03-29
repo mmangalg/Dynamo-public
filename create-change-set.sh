@@ -26,8 +26,6 @@ else
           ARN=$(echo $OUT | jq -r '.Id')
           echo "printing change set ARN: $ARN"
 
-          // sleep 15
-          // aws cloudformation execute-change-set --change-set-name $ARN --region $Region
-
+        
 fi 
 
