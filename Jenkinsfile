@@ -3,10 +3,17 @@ def createchangeset() {
   StackName="DynamoDBStack-${EnvironmentName}"
   println(StackName)
 
-  sh 'aws cloudformation wait  stack-exists --stack-name ${StackName} --region $Region'
-  STATUS = sh(script: "echo \$?", returnStatus: true)
+  //sh 'aws cloudformation wait  stack-exists --stack-name ${StackName} --region $Region'
+  //STATUS = sh(script: "echo \$?", returnStatus: true)
+  
+  STACK_LIST=sh(script: 'aws cloudformation list-stacks | jq -r '.[] | .[] | .StackName'', returnStatus: true)
+  STACK_LIST = STACK_LIST.split(' ');
+  println(STACK_LIST)
+  
+  
 
-if( STATUS == 0 ){
+
+if( STACK_LIST.contains(StackName)){
           println("creating change set for existing stack")
   OUT=sh(script: "aws cloudformation create-change-set     --stack-name ${StackName}     --change-set-name my-change-set  --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type UPDATE", returnStatus: true)
           ARN=sh(script: "echo $OUT | jq -r '.Id'", returnStatus: true)
