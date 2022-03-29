@@ -9,7 +9,7 @@ def createchangeset() {
   STACK_LIST=sh(script: "aws cloudformation list-stacks --region us-east-1 --stack-status-filter CREATE_COMPLETE| jq -r '.[]|.[]|.StackName'", returnStatus: true)
   println(STACK_LIST.getClass())
   //STACK_LIST = STACK_LIST.split(' ');
-  println(STACK_LIST)
+  println("Printing stack list"+STACK_LIST)
   
   
 
