@@ -46,7 +46,7 @@ Resources:
             #AttributeName:  !Ref 'PrimaryKeyName'
             Enabled: False
          SSESpecification:
-             KMSMasterKeyId: DynamoDB-kms
+             #KMSMasterKeyId: DynamoDB-kms
              SSEEnabled: True
              SSEType: KMS
 
