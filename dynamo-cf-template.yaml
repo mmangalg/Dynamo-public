@@ -40,8 +40,8 @@ Resources:
          - AttributeName: !Ref 'PrimaryKeyName'
            KeyType: HASH
          BillingMode: PROVISIONED
-#          StreamSpecification:
-#             StreamViewType: NEW_AND_OLD_IMAGES
+         StreamSpecification:
+             StreamViewType: NEW_IMAGE
          TimeToLiveSpecification:
             #AttributeName:  !Ref 'PrimaryKeyName'
             Enabled: False
