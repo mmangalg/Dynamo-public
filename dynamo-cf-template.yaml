@@ -47,7 +47,7 @@ Resources:
             Enabled: False
          SSESpecification:
              KMSMasterKeyId: DynamoDB-kms
-             SSEEnabled: Enabled
+             SSEEnabled: True
              SSEType: KMS
 
          
