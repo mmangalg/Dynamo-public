@@ -7,11 +7,16 @@ def createchangeset() {
   //sh 'aws cloudformation wait  stack-exists --stack-name ${StackName} --region $Region'
   //STATUS = sh(script: "echo \$?", returnStatus: true)
   
-  STACK_LIST=sh(script: "aws cloudformation list-stacks --region us-east-1 --stack-status-filter CREATE_COMPLETE| jq -r '.[]|.[]|.StackName' >> OUT.csv", returnStatus: true)
-  println(STACK_LIST)
-  println(OUT)
+//   STACK_LIST=sh(script: "aws cloudformation list-stacks --region us-east-1 --stack-status-filter CREATE_COMPLETE| jq -r '.[]|.[]|.StackName' >> OUT.csv", returnStatus: true)
+//   println(STACK_LIST)
+//   println(OUT)
+  
+  script
+  {
+      OUT=$(aws cloudformation list-stacks --region us-east-1 --stack-status-filter CREATE_COMPLETE| jq -r '.[]|.[]|.StackName') 
+  }
   //STACK_LIST = STACK_LIST.split(' ');
-  println("Printing stack list"+STACK_LIST)
+  println("Printing stack list"+OUT)
   
   
 
