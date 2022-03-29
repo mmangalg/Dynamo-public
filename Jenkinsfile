@@ -18,7 +18,7 @@ if( STATUS == 0 ){
  else {
       
           println("creating change set for new stack")
-          OUT=$(aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set   --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE)
+          OUT=sh(script: "aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set   --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE", returnStatus: true)
           ARN=sh(script: "echo $OUT | jq -r '.Id'")
           //echo "printing change set ARN: $ARN"
 
