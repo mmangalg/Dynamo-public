@@ -22,7 +22,8 @@ pipeline{
             
                 sh 'chmod a+x create-change-set.sh'
                 sh './create-change-set.sh'
-                 println(create-change-set())
+                 ARN = create-change-set()
+                 echo "printing ARN $ARN"
             
              }
         }
@@ -44,7 +45,7 @@ pipeline{
 //             }
 //         }
   }
-}
+
 def create-change-set() {
   
   StackName="DynamoDBStack-${EnvironmentName}"
