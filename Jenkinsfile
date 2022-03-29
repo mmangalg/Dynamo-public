@@ -1,4 +1,4 @@
-def create-change-set() {
+def createchangeset() {
   
   StackName="DynamoDBStack-${EnvironmentName}"
 
@@ -58,7 +58,7 @@ pipeline{
             
                 sh 'chmod a+x create-change-set.sh'
                 sh './create-change-set.sh'
-                 ARN = create-change-set()
+                 ARN = createchangeset()
                  echo "printing ARN $ARN"
             
              }
