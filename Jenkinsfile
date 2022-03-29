@@ -54,8 +54,8 @@ pipeline{
             
                 //sh 'chmod a+x create-change-set.sh'
                 //sh './create-change-set.sh'
-                 ARN = createchangeset()
-                 echo "printing ARN $ARN"
+                 createchangeset()
+                 //echo "printing ARN $ARN"
             
              }
         }
