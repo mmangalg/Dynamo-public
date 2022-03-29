@@ -6,7 +6,7 @@ def createchangeset() {
   //sh 'aws cloudformation wait  stack-exists --stack-name ${StackName} --region $Region'
   //STATUS = sh(script: "echo \$?", returnStatus: true)
   
-  STACK_LIST=sh(script: 'aws cloudformation list-stacks | jq -r '.[] | .[] | .StackName'', returnStatus: true)
+  STACK_LIST=sh(script: 'aws cloudformation list-stacks | jq -r '.[]|.[]|.StackName'', returnStatus: true)
   STACK_LIST = STACK_LIST.split(' ');
   println(STACK_LIST)
   
