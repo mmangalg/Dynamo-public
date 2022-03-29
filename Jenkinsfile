@@ -2,12 +2,12 @@ def createchangeset() {
   
   StackName="DynamoDBStack-${EnvironmentName}"
 
-  sh 'aws cloudformation wait  stack-exists --stack-name $StackName --region $Region'
+  sh 'aws cloudformation wait  stack-exists --stack-name StackName --region $Region'
   STATUS = sh(script: "echo \$?", returnStatus: true)
 
 if( STATUS == 0 ){
           println("creating change set for existing stack")
-          OUT=sh(script: "aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set  --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type UPDATE", returnStatus: true)
+          OUT=sh(script: "aws cloudformation create-change-set     --stack-name StackName     --change-set-name my-change-set  --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type UPDATE", returnStatus: true)
           ARN=sh(script: "echo $OUT | jq -r '.Id'", returnStatus: true)
           //echo "printing change set ARN: $ARN"
           //sleep 15
@@ -18,7 +18,7 @@ if( STATUS == 0 ){
  else {
       
           println("creating change set for new stack")
-          OUT=sh(script: "aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set   --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE", returnStatus: true)
+          OUT=sh(script: "aws cloudformation create-change-set     --stack-name StackName     --change-set-name my-change-set   --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE", returnStatus: true)
           ARN=sh(script: "echo $OUT | jq -r '.Id'")
           //echo "printing change set ARN: $ARN"
 
