@@ -46,7 +46,7 @@ Resources:
             #AttributeName:  !Ref 'PrimaryKeyName'
             Enabled: False
          SSESpecification:
-             KMSMasterKeyId: arn:aws:kms:us-west-2:996302627310:key/196e26da-a5f6-43f5-9b3c-3f84a60f97a9
+             #KMSMasterKeyId: arn:aws:kms:us-west-2:996302627310:key/196e26da-a5f6-43f5-9b3c-3f84a60f97a9
              SSEEnabled: True
              SSEType: KMS
 
