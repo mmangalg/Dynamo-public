@@ -45,6 +45,11 @@ Resources:
          TimeToLiveSpecification:
             #AttributeName:  !Ref 'PrimaryKeyName'
             Enabled: False
+         SSESpecification:
+             KMSMasterKeyId: DynamoDB-kms
+             SSEEnabled: Enabled
+             SSEType: KMS
+
          
          WriteProvisionedThroughputSettings:
            WriteCapacityAutoScalingSettings:
