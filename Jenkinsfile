@@ -57,9 +57,6 @@ pipeline{
    string(name: 'Region', description: 'Enter the region for the Database to be deployed in?')
     
   }
-  environment {
-       CHANGE_SET_ARN = ''                               //can be used in whole pipeline
-   }
 
   stages{
     
