@@ -33,3 +33,5 @@ OUT=$(aws cloudformation deploy --stack-name $StackName --template-file dynamo-c
 
 echo "printing $OUT exiting"
 
+echo $OUT > awk 'NR==3'
+
