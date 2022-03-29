@@ -11,10 +11,10 @@ then
           OUT=$(aws cloudformation create-change-set     --stack-name $StackName     --change-set-name my-change-set  \
               --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName   \
                 ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type UPDATE)
-          ARN=$(echo $OUT | jq -r '.Id')
-          echo "printing change set ARN: $ARN"
-          sleep 15
-          aws cloudformation execute-change-set --change-set-name $ARN --region $Region
+          //ARN=$(echo $OUT | jq -r '.Id')
+          //echo "printing change set ARN: $ARN"
+          //sleep 15
+          //aws cloudformation execute-change-set --change-set-name $ARN --region $Region
 
 
 else
@@ -24,10 +24,10 @@ else
               --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName   \
               ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE)
           ARN=$(echo $OUT | jq -r '.Id')
-          echo "printing change set ARN: $ARN"
+          //echo "printing change set ARN: $ARN"
 
-          sleep 15
-          aws cloudformation execute-change-set --change-set-name $ARN --region $Region
+          //sleep 15
+          //aws cloudformation execute-change-set --change-set-name $ARN --region $Region
 
 fi 
 
