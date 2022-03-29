@@ -7,6 +7,7 @@ def createchangeset() {
   //STATUS = sh(script: "echo \$?", returnStatus: true)
   
   STACK_LIST=sh(script: "aws cloudformation list-stacks | jq -r '.[]|.[]|.StackName'", returnStatus: true)
+  println(STACK_LIST.getClass())
   STACK_LIST = STACK_LIST.split(' ');
   println(STACK_LIST)
   
