@@ -11,9 +11,9 @@ if( STATUS == 0 ){
               --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName   \
                 ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type UPDATE", returnStatus: true)
           ARN=sh(script: "echo $OUT | jq -r '.Id'", returnStatus: true)
-          #echo "printing change set ARN: $ARN"
-          #sleep 15
-          #aws cloudformation execute-change-set --change-set-name $ARN --region $Region
+          //echo "printing change set ARN: $ARN"
+          //sleep 15
+         //aws cloudformation execute-change-set --change-set-name $ARN --region $Region
                  }
 
 
@@ -24,10 +24,10 @@ if( STATUS == 0 ){
               --template-body file://dynamo-cf-template.yaml --region $Region  --parameters ParameterKey=PrimaryKeyName,ParameterValue=$PrimaryKeyName   \
               ParameterKey=PrimaryKeyType,ParameterValue=$PrimaryKeyType ParameterKey=EnvironmentName,ParameterValue=$EnvironmentName ParameterKey=Region,ParameterValue=$Region --change-set-type CREATE)
           ARN=sh(script: "echo $OUT | jq -r '.Id'")
-          #echo "printing change set ARN: $ARN"
+          //echo "printing change set ARN: $ARN"
 
-          #sleep 15
-          #aws cloudformation execute-change-set --change-set-name $ARN --region $Region
+          //sleep 15
+          //aws cloudformation execute-change-set --change-set-name $ARN --region $Region
 }
                  return ARN
   
