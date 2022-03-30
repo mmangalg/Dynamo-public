@@ -30,25 +30,35 @@ Parameters:
 Mappings: 
   ThroughputMap: 
     Staging: 
-      "ReadCapacityUnits": "2"
       "MinWriteCapacity": "2"
       "MaxWriteCapacity": "5"
       "SeedWriteCapacity": "3"
+      "MinReadCapacity": "2"
+      "MaxReadCapacity": "5"
+      "SeedReadCapacity": "3"
     Perf: 
-      "ReadCapacityUnits": "6"
       "MinWriteCapacity": "3"
       "MaxWriteCapacity": "6"
       "SeedWriteCapacity": "4"
+      "MinReadCapacity": "2"
+      "MaxReadCapacity": "5"
+      "SeedReadCapacity": "3"
     E2E: 
-      "ReadCapacityUnits": "7"
+      #"ReadCapacityUnits": "7"
       "MinWriteCapacity": "4"
       "MaxWriteCapacity": "7"
       "SeedWriteCapacity": "5"
+      "MinReadCapacity": "2"
+      "MaxReadCapacity": "5"
+      "SeedReadCapacity": "3"
     Production: 
-      "ReadCapacityUnits": "8"
+      #"ReadCapacityUnits": "8"
       "MinWriteCapacity": "5"
       "MaxWriteCapacity": "8"
       "SeedWriteCapacity": "6"
+      "MinReadCapacity": "2"
+      "MaxReadCapacity": "5"
+      "SeedReadCapacity": "3"
 
 Resources:
  GlobalTableTest:
@@ -94,8 +104,16 @@ Resources:
                Value: east
              - Key: Env
                Value: !Ref 'EnvironmentName'
-           ReadProvisionedThroughputSettings: 
-               ReadCapacityUnits: !FindInMap [ThroughputMap, !Ref "EnvironmentName", ReadCapacityUnits]
+           ReadProvisionedThroughputSettings:
+             ReadCapacityAutoScalingSettings:
+                 MinCapacity : !FindInMap [ThroughputMap, !Ref "EnvironmentName", MinReadCapacity]
+                 MaxCapacity : !FindInMap [ThroughputMap, !Ref "EnvironmentName", MaxReadCapacity]
+                 SeedCapacity : !FindInMap [ThroughputMap, !Ref "EnvironmentName", SeedReadCapacity]
+                 TargetTrackingScalingPolicyConfiguration:
+                       DisableScaleIn: False
+                       ScaleInCooldown: 60
+                       ScaleOutCooldown: 60
+                       TargetValue: 70
            
 #          - Region: us-west-1
 #            PointInTimeRecoverySpecification:
