@@ -30,7 +30,7 @@ Parameters:
 Mappings: 
   ThroughputMap: 
     Staging: 
-      "ReadCapacityUnits": "5",
+      "ReadCapacityUnits": "2",
       "MinWriteCapacity": "2",
       "MaxWriteCapacity": "5",
       "SeedWriteCapacity": "3"
