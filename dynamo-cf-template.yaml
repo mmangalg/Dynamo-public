@@ -30,24 +30,24 @@ Parameters:
 Mappings: 
   ThroughputMap: 
     Staging: 
-      "ReadCapacityUnits": "2",
-      "MinWriteCapacity": "2",
-      "MaxWriteCapacity": "5",
+      "ReadCapacityUnits": "2"
+      "MinWriteCapacity": "2"
+      "MaxWriteCapacity": "5"
       "SeedWriteCapacity": "3"
     Perf: 
-      "ReadCapacityUnits": "6",
-      "MinWriteCapacity": "3",
-      "MaxWriteCapacity": "6",
+      "ReadCapacityUnits": "6"
+      "MinWriteCapacity": "3"
+      "MaxWriteCapacity": "6"
       "SeedWriteCapacity": "4"
     E2E: 
-      "ReadCapacityUnits": "7",
-      "MinWriteCapacity": "4",
-      "MaxWriteCapacity": "7",
+      "ReadCapacityUnits": "7"
+      "MinWriteCapacity": "4"
+      "MaxWriteCapacity": "7"
       "SeedWriteCapacity": "5"
     Production: 
-      "ReadCapacityUnits": "8",
-      "MinWriteCapacity": "5",
-      "MaxWriteCapacity": "8",
+      "ReadCapacityUnits": "8"
+      "MinWriteCapacity": "5"
+      "MaxWriteCapacity": "8"
       "SeedWriteCapacity": "6"
 
 Resources:
